@@ -44,6 +44,7 @@ namespace Grades.Tests
 
 			GradeStatistics results = gradeBook.ComputeStatistics();
 			Assert.AreEqual(85.16, results.AverageGrade,0.01);
+			//test
 
 
 		}
