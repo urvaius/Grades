@@ -19,7 +19,13 @@ namespace Grades
 			//synth.Speak("Hello This is the grade book program");
 
 			GradeBook book = new GradeBook();
-			book.NameChanged = new NameChangedDelegate(OnNameChanged);
+			book.NameChanged += new NameChangedDelegate(OnNameChanged);
+
+			//or like this
+			book.NameChanged += OnNameChanged;
+
+
+
 			book.Name = "Dave's gradwbook";
 			book.AddGrade(91);
 			book.AddGrade(89.5f);
@@ -35,10 +41,12 @@ namespace Grades
 
 
 			}
-		static void OnNameChanged(string existingName, string newName)
+		static void OnNameChanged(object sender, NameChangedEventArgs args)
 		{
-			Console.WriteLine($"Grade book changing name from {existingName} to {newName}");
+			Console.WriteLine($"Grade book changing name from {args.ExistingName} to {args.NewName}");
 		}
+
+		
 		static void WriteResult(string description,int result)
 		{
 			Console.WriteLine(description + ": " + result);
