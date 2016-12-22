@@ -19,10 +19,11 @@ namespace Grades
 			//synth.Speak("Hello This is the grade book program");
 
 			GradeBook book = new GradeBook();
+			book.Name = "Dave's gradwbook";
 			book.AddGrade(91);
 			book.AddGrade(89.5f);
 			book.AddGrade(75);
-
+			Console.Write(book.Name);
 			GradeStatistics stats = book.ComputeStatistics();
 			WriteResult("Average",stats.AverageGrade);
 			Console.WriteLine(stats.LowestGrade);
